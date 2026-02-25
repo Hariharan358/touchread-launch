@@ -1,61 +1,57 @@
 import { motion } from "framer-motion";
-import heroDevice from "@/assets/hero-device.png";
 
-const specs = [
-  { label: "Braille Display", desc: "Dynamic tactile output" },
-  { label: "Tactile Keypad", desc: "Intuitive input system" },
-  { label: "Rechargeable", desc: "12hr battery life" },
-  { label: "Edge AI", desc: "On-device processing" },
-  { label: "Bluetooth 5.0", desc: "Seamless connectivity" },
+const cards = [
+  { title: "Personal Notes", type: "note", color: "card-yellow", span: 22 },
+  { title: "Design Objects", type: "image", color: "card-green", span: 30 },
+  { title: "Digital Highlights", type: "quote", color: "card-pink", span: 18 },
+  { title: "Tactile Patterns", type: "concept", color: "card-blue", span: 26 },
+  { title: "Brain Maps", type: "image", color: "card-orange", span: 24 },
+  { title: "AI Transcripts", type: "text", color: "card-purple", span: 20 },
+  { title: "Voice Memos", type: "audio", color: "card-yellow", span: 28 },
+  { title: "Scientific Links", type: "link", color: "card-green", span: 16 },
+  { title: "Future Tech", type: "idea", color: "card-blue", span: 32 },
 ];
 
 const ShowcaseSection = () => (
-  <section className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
+  <section id="showcase" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
     <div className="section-divider absolute top-0 left-0 right-0" />
 
-    <div className="relative z-10 mx-auto max-w-5xl text-center">
+    <div className="relative z-10 mx-auto max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
+        className="text-center mb-24"
       >
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">
-          Product Showcase
+          The Mind Expansion
         </p>
-        <h2 className="text-4xl font-display text-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
-          Engineered to <span className="gradient-text">perfection</span>
+        <h2 className="text-5xl font-display text-foreground sm:text-6xl leading-[1.1]">
+          One place for <span className="gradient-text italic">everything.</span>
         </h2>
+        <p className="mx-auto mt-6 max-w-xl text-muted-foreground font-light text-lg">
+          No need to organize, label or even tag. Your mind magically organizes and visualizes everything for you.
+        </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="relative mx-auto mt-16 max-w-md"
-      >
-        <div className="rounded-[2rem] bg-[hsl(36,40%,94%)] border border-[hsl(36,25%,88%)] p-10 shadow-[0_20px_60px_hsl(30,10%,12%,0.06)]">
-          <img
-            src={heroDevice}
-            alt="TouchRead device showcase"
-            className="w-full animate-float"
-          />
-        </div>
-      </motion.div>
-
-      <div className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-        {specs.map((s, i) => (
+      <div className="mymind-grid">
+        {cards.map((card, i) => (
           <motion.div
-            key={s.label}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            key={card.title + i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 + i * 0.08, duration: 0.5 }}
-            className="text-center"
+            transition={{ delay: i * 0.05, duration: 0.6, ease: "easeOut" }}
+            className={`mymind-card ${card.color} flex flex-col justify-end`}
+            style={{ "--span": card.span } as React.CSSProperties}
           >
-            <span className="text-sm font-bold text-foreground block font-display">{s.label}</span>
-            <span className="text-[11px] text-muted-foreground">{s.desc}</span>
+            <div className="space-y-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
+                {card.type}
+              </span>
+              <h3 className="text-xl font-display leading-tight">{card.title}</h3>
+            </div>
           </motion.div>
         ))}
       </div>

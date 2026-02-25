@@ -18,7 +18,7 @@ const Index = () => (
     <SocialProofBar />
     <ProblemSection />
     <SolutionSection />
-    <ShowcaseSection />
+    
     <FeaturesGrid />
     <ImpactSection />
     <TechnicalSection />

@@ -1,56 +1,64 @@
 import { motion } from "framer-motion";
 
-const problems = [
-  {
-    title: "Digital Exclusion",
-    description: "Over 2 billion digital interfaces remain inaccessible to visually impaired users worldwide.",
-  },
-  {
-    title: "Lack of Privacy",
-    description: "Screen readers broadcast sensitive content out loud, stripping away personal privacy.",
-  },
-  {
-    title: "Prohibitive Costs",
-    description: "Traditional Braille displays cost $3,000 to $15,000, putting them out of reach for most.",
-  },
+const manifestoItems = [
+  { label: "expensive hardware", strike: true },
+  { label: "audible screen readers", strike: true },
+  { label: "zero privacy", strike: true },
+  { label: "digital barriers", strike: true },
+  { label: "complex interfaces", strike: true },
+  { label: "social exclusion", strike: true },
 ];
 
 const ProblemSection = () => (
-  <section className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
+  <section className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-b)" }}>
     <div className="section-divider absolute top-0 left-0 right-0" />
 
     <div className="relative z-10 mx-auto max-w-5xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-20"
-      >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">
-          The Problem
-        </p>
-        <h2 className="text-4xl font-display text-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
-          A world that isn't built
-          <br />
-          <span className="gradient-text">for everyone</span>
-        </h2>
-      </motion.div>
+      <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="lg:w-1/2"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-10">
+            The Accessibility Manifesto
+          </p>
+          <h2 className="text-4xl font-display text-foreground leading-[1.2] mb-8">
+            In a world that speaks its data out loud, the right to a private digital life is often lost.
+          </h2>
+          <p className="text-xl text-muted-foreground font-light leading-relaxed">
+            Current assistive tools either cost as much as a car or strip away your privacy in public spaces.
+            True independence shouldn't have a $15,000 price tag.
+          </p>
+        </motion.div>
 
-      <div className="grid gap-0 divide-y divide-foreground/8">
-        {problems.map((p, i) => (
-          <motion.div
-            key={p.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            className="group py-10 md:py-14 flex flex-col md:flex-row md:items-start gap-4 md:gap-16"
-          >
-            <h3 className="text-2xl md:text-3xl font-display text-foreground md:w-72 shrink-0">{p.title}</h3>
-            <p className="text-base leading-relaxed text-muted-foreground font-light">{p.description}</p>
-          </motion.div>
-        ))}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:w-1/2 flex flex-col justify-center"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[hsl(18,76%,62%)] mb-10">
+            We're ending:
+          </p>
+          <div className="space-y-4">
+            {manifestoItems.map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
+                className="text-3xl font-display text-foreground manifesto-strike"
+              >
+                {item.label}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   </section>

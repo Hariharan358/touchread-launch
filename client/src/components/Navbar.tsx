@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Technology", href: "#technical" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Impact", href: "#impact" },
+  { label: "What", href: "#features", dot: "bg-[hsl(25,100%,60%)]" },
+  { label: "Why", href: "#technical", dot: "bg-[hsl(45,100%,50%)]" },
+  { label: "How", href: "#solution", dot: "bg-[hsl(330,100%,65%)]" },
+  { label: "What's New", href: "#impact", dot: "bg-[hsl(150,100%,40%)]" },
 ];
 
 const Navbar = () => {
@@ -69,13 +69,14 @@ const Navbar = () => {
                       key={link.label}
                       href={link.href}
                       className={`
-                        text-[13px] font-semibold uppercase tracking-[0.12em] transition-all duration-300
+                        flex items-center gap-1.5 text-[13px] font-semibold transition-all duration-300
                         ${isActive
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
                         }
                       `}
                     >
+                      <span className={`w-1 h-1 rounded-full ${link.dot}`} />
                       {link.label}
                     </a>
                   );
