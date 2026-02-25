@@ -1,54 +1,58 @@
 import { motion } from "framer-motion";
-import { Cpu, Cog, CircuitBoard, Battery, Bluetooth } from "lucide-react";
+import { Cpu, Bluetooth, Battery, Package, Ruler } from "lucide-react";
 
 const specs = [
-  { icon: Cpu, title: "ESP32 Core", desc: "Dual-core 240 MHz with built-in Wi-Fi & BLE", bg: "bg-purple-50", textColor: "text-purple-500" },
-  { icon: Cog, title: "Solenoid Braille", desc: "Precision electromagnetic solenoid actuators", bg: "bg-emerald-50", textColor: "text-emerald-600" },
-  { icon: CircuitBoard, title: "ULN2003 Driver", desc: "High-current Darlington driver array", bg: "bg-violet-50", textColor: "text-violet-500" },
-  { icon: Battery, title: "1500mAh Battery", desc: "Rechargeable Li-Po with 12hr runtime", bg: "bg-amber-50", textColor: "text-amber-600" },
-  { icon: Bluetooth, title: "BLE 5.0", desc: "Low-energy Bluetooth for seamless pairing", bg: "bg-rose-50", textColor: "text-rose-500" },
+  { icon: Package, title: "Physical Build", desc: "Durable reinforced ABS with eco-friendly soft-touch finish." },
+  { icon: Ruler, title: "Pocket-Ready", desc: "100mm x 45mm x 15mm. Weighs only 90 grams." },
+  { icon: Bluetooth, title: "Universal Pairing", desc: "Bluetooth Low Energy 5.1. Works with iOS, Android, and PC." },
+  { icon: Battery, title: "Massive Battery", desc: "Li-Po rechargeable. Up to 100 hours of active typing." },
+  { icon: Cpu, title: "Tactile Keypad", desc: "Precision mechanical buttons with high-click longevity." },
 ];
 
 const TechnicalSection = () => (
-  <section id="technical" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
-    <div className="section-divider absolute top-0 left-0 right-0" />
-    <div className="orb orb-mauve w-[350px] h-[350px] top-[20%] right-[-5%] animate-float-slow" />
+  <section id="technical" className="section-dark relative overflow-hidden">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row gap-20 items-start">
+        <div className="lg:sticky lg:top-32 lg:w-1/2">
+          <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-6 block">Technical Excellence</span>
+          <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-7xl leading-[1.1]">
+            Small size. <br />
+            <span className="text-primary italic">Big impact.</span>
+          </h2>
+          <p className="mt-8 text-xl text-gray-400 font-medium leading-relaxed">
+            Every millimeter of the Hable One is engineered for comfort and durability.
+            We've packed industry-leading technology into a device that fits in the palm of your hand.
+          </p>
 
-    <div className="relative z-10 mx-auto max-w-7xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="text-center"
-      >
-        <span className="inline-flex items-center gap-2 rounded-full border border-purple-200/50 bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500">
-          Under the Hood
-        </span>
-        <h2 className="mt-5 text-3xl font-bold text-foreground font-display sm:text-4xl lg:text-5xl">
-          Technical <span className="gradient-text italic">Excellence</span>
-        </h2>
-      </motion.div>
+          <div className="mt-12">
+            <a href="#cta" className="btn-hable-primary">
+              Full Spec Sheet
+            </a>
+          </div>
+        </div>
 
-      <div className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {specs.map((s, i) => (
-          <motion.div
-            key={s.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            className="group"
-          >
-            <div className="glass-card-strong flex flex-col items-center text-center p-6 h-full transition-all duration-700 hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)]">
-              <div className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${s.bg} ${s.textColor} transition-all duration-500 group-hover:scale-110 group-hover:shadow-md`}>
-                <s.icon size={28} />
+        <div className="lg:w-1/2 w-full space-y-6">
+          {specs.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              className="group p-8 rounded-3xl bg-white/5 border border-white/5 transition-all duration-300 hover:bg-white/10"
+            >
+              <div className="flex items-center gap-6">
+                <div className="flex items-center justify-center rounded-2xl bg-primary w-14 h-14 shrink-0 shadow-[0_0_20px_rgba(255,210,0,0.2)]">
+                  <s.icon size={24} className="text-black" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-white">{s.title}</h3>
+                  <p className="mt-2 text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+                </div>
               </div>
-              <h3 className="text-sm font-bold text-foreground font-display">{s.title}</h3>
-              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,66 +6,43 @@
 
 @layer base {
   :root {
-    /* Hable Green & Clean High-Contrast Palette */
+    /* ─── HABLE-INSPIRED ACCESSIBILITY PALETTE ─── */
     --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 0 91% 71%;
-    /* Hable Logo Red #f87171 approximation */
-    --primary-foreground: 0 0% 100%;
+    /* Hable Yellow — high contrast primary */
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary-foreground: 0 0% 5%;
 
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 142 70% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 142 70% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 48 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Clean Brand Tokens */
-    --hable-green: 142 70% 45%;
-    --hable-dark: 0 0% 8%;
-    --hable-gray: 0 0% 64%;
-
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 89% / 0.5;
-    --glass-bg-strong: 0 0% 100% / 0.9;
-    --glass-border-strong: 0 0% 89%;
-
-    /* Updated section backgrounds */
-    --section-bg-a: hsl(0 0% 100%);
-    --section-bg-b: hsl(0 0% 98%);
-    --hero-bg: hsl(0 0% 100%);
-
-    --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.03);
-    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
-    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 8%;
-    --sidebar-primary: 142 70% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 0 0% 89%;
-    --sidebar-ring: 142 70% 45%;
+    /* Specific Hable colors */
+    --hable-yellow: #FFD200;
+    --hable-black: #000000;
+    --hable-dark: #121212;
+    --hable-gray: #F5F5F7;
   }
 }
 
@@ -76,7 +53,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
   body {
@@ -90,296 +67,105 @@
   h4,
   h5,
   h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    @apply tracking-tight;
+    font-family: 'Montserrat', sans-serif;
+    @apply font-black tracking-tight;
   }
 }
 
 /* =============================================
-   HABLE INSPIRED CLEAN DESIGN
+   HABLE-INSPIRED ACCESSIBLE DESIGN SYSTEM
    ============================================= */
 
 @layer components {
 
-  /* === Glass Cards === */
-  .glass-card {
-    @apply rounded-xl border relative overflow-hidden;
-    background: hsl(var(--glass-bg));
-    border-color: hsl(var(--glass-border));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  /* === High Contrast Section === */
+  .section-dark {
+    @apply bg-[var(--hable-black)] text-white py-24 md:py-32;
   }
 
-  .glass-card-strong {
-    @apply rounded-xl border relative overflow-hidden;
-    background: hsl(var(--glass-bg-strong));
-    border-color: hsl(var(--glass-border-strong));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: var(--shadow-card);
+  .section-light {
+    @apply bg-white text-[var(--hable-black)] py-24 md:py-32;
   }
 
-  /* === Accent Text === */
-  .gradient-text {
-    color: hsl(var(--primary));
+  .section-gray {
+    @apply bg-[var(--hable-gray)] text-[var(--hable-black)] py-24 md:py-32;
   }
 
-  .gradient-text-cyan {
-    color: hsl(var(--primary));
+  /* === Buttons — Hable Style === */
+  .btn-hable-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-yellow)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
   }
 
-  /* === Glow Effects === */
-  .glow-cyan {
-    box-shadow: var(--shadow-glow);
+  .btn-hable-dark {
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-black)] px-8 py-4 text-sm font-extrabold tracking-wider text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
   }
 
-  /* === Backgrounds === */
-  .hero-gradient {
-    background: var(--hero-bg);
-    position: relative;
+  .btn-hable-outline {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-[var(--hable-black)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:bg-[var(--hable-black)] hover:text-white uppercase;
   }
 
-  .section-gradient {
-    background: var(--section-bg-a);
+  /* === Cards === */
+  .product-card {
+    @apply overflow-hidden rounded-3xl bg-white p-6 transition-all duration-500 hover:-translate-y-2;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   }
 
-  .section-gradient-alt {
-    background: var(--section-bg-b);
+  .product-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   }
 
-  .section-padding {
-    @apply px-4 py-20 md:px-8 lg:px-16 xl:px-24 lg:py-32;
+  /* === Badges === */
+  .badge-hable {
+    @apply inline-flex items-center rounded-full px-4 py-1.5 text-xs font-bold tracking-widest text-[var(--hable-black)] uppercase border;
+    background-color: rgba(255, 210, 0, 0.1);
+    border-color: rgba(255, 210, 0, 0.2);
   }
 
-  /* === Solid Accent Border === */
-  .gradient-border {
-    position: relative;
-    z-index: 0;
+  /* === Grid Patterns === */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, #000000 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.05;
   }
 
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: hsl(var(--plum) / 0.15);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
+  /* === Animations === */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
-  /* === Shimmer Border — solid subtle pulse === */
-  .shimmer-border {
-    position: relative;
-    z-index: 0;
-  }
-
-  .shimmer-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: hsl(var(--plum) / 0.18);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
-    animation: shimmer-pulse 3s ease-in-out infinite;
-  }
-
-  @keyframes shimmer-pulse {
+  @keyframes float {
 
     0%,
     100% {
-      opacity: 0.5;
+      transform: translateY(0);
     }
 
     50% {
-      opacity: 1;
+      transform: translateY(-20px);
     }
   }
 
-  /* === Buttons === */
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-semibold tracking-wide transition-all duration-300 relative overflow-hidden;
-    background: #000;
-    color: #fff;
-    box-shadow: none;
-  }
-
-  .btn-primary:hover {
-    background: #222;
-    transform: none;
-  }
-
-  .btn-outline-cyan {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-semibold tracking-wide transition-all duration-300 border border-black relative overflow-hidden;
+  /* === Selection === */
+  ::selection {
+    background: var(--hable-yellow);
     color: #000;
-    background: transparent;
-  }
-
-  .btn-outline-cyan:hover {
-    background: #f4f4f4;
-    transform: none;
-  }
-
-  /* === Feature Cards === */
-  .feature-card {
-    @apply glass-card-strong p-6 md:p-8 transition-all duration-700;
-  }
-
-  .feature-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-6px);
-    border-color: hsl(var(--plum) / 0.12);
-  }
-
-  /* === Pricing Cards === */
-  .pricing-card {
-    @apply rounded-2xl p-8 transition-all duration-700 relative overflow-hidden;
-    background: hsl(var(--glass-bg-strong));
-    border: 1px solid hsl(var(--glass-border-strong));
-    backdrop-filter: blur(28px) saturate(1.6);
-    -webkit-backdrop-filter: blur(28px) saturate(1.6);
-    box-shadow: var(--shadow-card);
-  }
-
-  .pricing-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-6px);
-    border-color: hsl(var(--plum) / 0.12);
-  }
-
-  .pricing-card-featured {
-    @apply pricing-card shimmer-border;
-    border-color: hsl(var(--plum) / 0.2);
-    box-shadow: 0 0 30px hsl(var(--plum) / 0.06), var(--shadow-card);
-    background: hsl(var(--plum) / 0.02);
-  }
-
-  .pricing-card-featured:hover {
-    box-shadow: 0 0 50px hsl(var(--plum) / 0.1), var(--shadow-card-hover);
-  }
-
-  /* === Noise Texture Overlay === */
-  .noise-overlay::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.018;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-  }
-
-  /* === Floating Orbs === */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  .orb-plum {
-    background: hsl(var(--primary) / 0.1);
-  }
-
-  .orb-rose {
-    background: hsl(var(--primary) / 0.08);
-  }
-
-  .orb-mauve {
-    background: hsl(var(--primary) / 0.06);
-  }
-
-  .orb-amber {
-    background: hsl(var(--primary) / 0.05);
-  }
-
-  /* === Section Divider — solid === */
-  .section-divider {
-    height: 1px;
-    background: hsl(var(--plum) / 0.08);
-  }
-}
-
-/* =============================================
-   CUSTOM ANIMATIONS
-   ============================================= */
-
-@keyframes float-slow {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0);
-  }
-
-  33% {
-    transform: translateY(-15px) translateX(8px);
-  }
-
-  66% {
-    transform: translateY(8px) translateX(-5px);
-  }
-}
-
-@keyframes float-faster {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0) scale(1);
-  }
-
-  50% {
-    transform: translateY(-20px) translateX(15px) scale(1.05);
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.7;
-    transform: scale(1.06);
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(30 20% 97%);
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--plum) / 0.15);
-  border-radius: 4px;
+  background: #E5E5E5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--plum) / 0.3);
-}
-
-/* Selection color */
-::selection {
-  background: hsl(var(--plum) / 0.12);
-  color: hsl(20 25% 12%);
+  background: #FFD200;
 }
