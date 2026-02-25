@@ -5,17 +5,17 @@ import heroDevice from "@/assets/hero-device.png";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-20" style={{ background: "var(--hero-bg)" }}>
-      {/* Warm Ambient Orbs */}
-      <div className="orb orb-plum w-[600px] h-[600px] top-[5%] right-[-15%] animate-float-slow" />
-      <div className="orb orb-rose w-[450px] h-[450px] bottom-[15%] left-[-10%] animate-float-faster" />
-      <div className="orb orb-amber w-[300px] h-[300px] top-[55%] left-[35%] animate-pulse-glow opacity-50" />
+      {/* Clean Ambient Accents */}
+      <div className="orb orb-plum w-[600px] h-[600px] top-[-10%] right-[-15%] animate-float-slow bg-primary/5" />
+      <div className="orb orb-rose w-[450px] h-[450px] bottom-[10%] left-[-10%] animate-float-faster bg-primary/5" />
+      <div className="orb orb-amber w-[300px] h-[300px] top-[40%] left-[30%] animate-pulse-glow opacity-30 bg-primary/5" />
 
-      {/* Dot grid */}
+      {/* Grid */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.035]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.015]"
         style={{
-          backgroundImage: `radial-gradient(circle, hsl(var(--plum) / 0.6) 1px, transparent 1px)`,
-          backgroundSize: '32px 32px',
+          backgroundImage: `radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
         }}
       />
 
@@ -31,28 +31,27 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[hsl(280,45%,45%,0.15)] bg-[hsl(280,45%,45%,0.05)] px-5 py-2 text-xs font-semibold tracking-widest text-[hsl(280,45%,45%)] uppercase backdrop-blur-sm"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-5 py-2 text-xs font-semibold tracking-widest text-primary uppercase"
           >
-            <Sparkles size={12} className="animate-pulse" />
-            Introducing TouchRead
+            Smartphone access made simple
           </motion.span>
 
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground font-display sm:text-5xl lg:text-6xl xl:text-7xl">
-            The Future of
+            Making independence
             <br />
-            <span className="gradient-text italic">Tactile Communication</span>
+            <span className="text-primary italic">affordable</span>
           </h1>
 
           <p className="mx-auto mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            A pocket-sized intelligent Braille device empowering blind and deaf-blind individuals with real-time, private communication.
+            Products designed for all levels of technical experience, our compact controllers make navigating your device easy and enjoyable.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
             <a href="#cta" className="btn-primary gap-2">
-              <span>Pre-Order Now</span> <ArrowRight size={16} />
+              <span>View Products</span> <ArrowRight size={16} />
             </a>
             <a href="#solution" className="btn-outline-cyan gap-2">
-              <Play size={16} /> Watch Demo
+              <Play size={16} /> Learn More
             </a>
           </div>
 
@@ -82,7 +81,7 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
           className="relative flex-1"
         >
-          <div className="pointer-events-none absolute inset-0 -z-10 m-auto h-96 w-96 rounded-full bg-[hsl(280,45%,45%,0.08)] blur-[100px] animate-pulse-glow" />
+          <div className="pointer-events-none absolute inset-0 -z-10 m-auto h-96 w-96 rounded-full bg-primary/5 blur-[100px] animate-pulse-glow" />
 
           <div className="relative mx-auto max-w-md lg:max-w-lg">
             <div className="absolute inset-0 rounded-3xl bg-white/40 border border-black/[0.04] backdrop-blur-sm shadow-[0_8px_40px_rgba(0,0,0,0.05)]" />

@@ -6,68 +6,66 @@
 
 @layer base {
   :root {
-    /* Premium Warm White Palette — solid colors only */
-    --background: 30 20% 99%;
-    --foreground: 20 25% 12%;
+    /* Hable Green & Clean High-Contrast Palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 25% 12%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 25% 12%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 280 45% 45%;
+    --primary: 0 91% 71%;
+    /* Hable Logo Red #f87171 approximation */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 15% 95%;
-    --secondary-foreground: 20 25% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 25 12% 93%;
-    --muted-foreground: 20 10% 44%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 280 45% 45%;
+    --accent: 142 70% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 15% 90%;
-    --input: 25 15% 90%;
-    --ring: 280 45% 45%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 142 70% 45%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* Premium accent tokens — solid */
-    --plum: 280 45% 45%;
-    --mauve: 310 40% 50%;
-    --rose: 340 65% 52%;
-    --teal: 172 55% 40%;
-    --amber: 32 90% 52%;
-    --emerald: 155 55% 38%;
+    /* Clean Brand Tokens */
+    --hable-green: 142 70% 45%;
+    --hable-dark: 0 0% 8%;
+    --hable-gray: 0 0% 64%;
 
-    --glass-bg: 0 0% 100% / 0.55;
-    --glass-border: 25 18% 91%;
-    --glass-bg-strong: 0 0% 100% / 0.72;
-    --glass-border-strong: 25 18% 89%;
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 89% / 0.5;
+    --glass-bg-strong: 0 0% 100% / 0.9;
+    --glass-border-strong: 0 0% 89%;
 
-    /* Solid section backgrounds — no gradients */
-    --section-bg-a: hsl(30 20% 99%);
-    --section-bg-b: hsl(290 8% 97%);
-    --hero-bg: hsl(290 10% 98%);
+    /* Updated section backgrounds */
+    --section-bg-a: hsl(0 0% 100%);
+    --section-bg-b: hsl(0 0% 98%);
+    --hero-bg: hsl(0 0% 100%);
 
-    --shadow-soft: 0 2px 20px hsl(20 25% 12% / 0.04);
-    --shadow-card: 0 4px 30px hsl(20 25% 12% / 0.06), 0 1px 4px hsl(20 25% 12% / 0.03);
-    --shadow-card-hover: 0 12px 50px hsl(280 45% 45% / 0.08), 0 4px 20px hsl(20 25% 12% / 0.05);
-    --shadow-glow: 0 0 40px hsl(280 45% 45% / 0.1);
+    --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.03);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 20 25% 12%;
-    --sidebar-primary: 280 45% 45%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 142 70% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 30 15% 95%;
-    --sidebar-accent-foreground: 20 25% 12%;
-    --sidebar-border: 25 15% 90%;
-    --sidebar-ring: 280 45% 45%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 142 70% 45%;
   }
 }
 
@@ -85,43 +83,49 @@
     @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply tracking-tight;
+  }
 }
 
 /* =============================================
-   PREMIUM CLEAN DESIGN — SOLID COLORS ONLY
+   HABLE INSPIRED CLEAN DESIGN
    ============================================= */
 
 @layer components {
 
   /* === Glass Cards === */
   .glass-card {
-    @apply rounded-2xl border relative overflow-hidden;
+    @apply rounded-xl border relative overflow-hidden;
     background: hsl(var(--glass-bg));
     border-color: hsl(var(--glass-border));
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-card-strong {
-    @apply rounded-2xl border relative overflow-hidden;
+    @apply rounded-xl border relative overflow-hidden;
     background: hsl(var(--glass-bg-strong));
     border-color: hsl(var(--glass-border-strong));
-    backdrop-filter: blur(28px) saturate(1.6);
-    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--shadow-card);
   }
 
-  .glass-card-light {
-    @apply glass-card-strong;
-  }
-
-  /* === Accent Text — solid color, no gradient === */
+  /* === Accent Text === */
   .gradient-text {
-    color: hsl(var(--plum));
+    color: hsl(var(--primary));
   }
 
   .gradient-text-cyan {
-    color: hsl(var(--rose));
+    color: hsl(var(--primary));
   }
 
   /* === Glow Effects === */
@@ -129,7 +133,7 @@
     box-shadow: var(--shadow-glow);
   }
 
-  /* === Backgrounds — solid === */
+  /* === Backgrounds === */
   .hero-gradient {
     background: var(--hero-bg);
     position: relative;
@@ -202,50 +206,28 @@
     }
   }
 
-  /* === Buttons — solid colors === */
+  /* === Buttons === */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-2xl px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-500 relative overflow-hidden;
-    background: hsl(var(--plum));
+    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-semibold tracking-wide transition-all duration-300 relative overflow-hidden;
+    background: #000;
     color: #fff;
-    box-shadow: 0 4px 24px hsl(var(--plum) / 0.25), 0 1px 3px hsl(var(--plum) / 0.12);
+    box-shadow: none;
   }
 
   .btn-primary:hover {
-    background: hsl(280 45% 38%);
-    box-shadow: 0 8px 36px hsl(var(--plum) / 0.3), 0 2px 8px hsl(var(--plum) / 0.15);
-    transform: translateY(-3px);
-  }
-
-  .btn-primary>* {
-    position: relative;
-    z-index: 1;
+    background: #222;
+    transform: none;
   }
 
   .btn-outline-cyan {
-    @apply inline-flex items-center justify-center rounded-2xl px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-500 border relative overflow-hidden;
-    border-color: hsl(var(--plum) / 0.2);
-    color: hsl(var(--plum));
-    background: hsl(var(--plum) / 0.03);
+    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-semibold tracking-wide transition-all duration-300 border border-black relative overflow-hidden;
+    color: #000;
+    background: transparent;
   }
 
   .btn-outline-cyan:hover {
-    background: hsl(var(--plum) / 0.07);
-    border-color: hsl(var(--plum) / 0.35);
-    box-shadow: 0 4px 20px hsl(var(--plum) / 0.1);
-    transform: translateY(-3px);
-  }
-
-  .btn-cyan {
-    @apply inline-flex items-center justify-center rounded-2xl px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-500 relative overflow-hidden;
-    background: hsl(var(--plum));
-    color: #fff;
-    box-shadow: 0 4px 24px hsl(var(--plum) / 0.25);
-  }
-
-  .btn-cyan:hover {
-    background: hsl(280 45% 38%);
-    box-shadow: 0 8px 40px hsl(var(--plum) / 0.35);
-    transform: translateY(-3px);
+    background: #f4f4f4;
+    transform: none;
   }
 
   /* === Feature Cards === */
@@ -299,29 +281,30 @@
     background-size: 256px 256px;
   }
 
-  /* === Floating Orbs (warm light) === */
+  /* === Floating Orbs === */
   .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
+    filter: blur(100px);
     pointer-events: none;
     z-index: 0;
+    opacity: 0.4;
   }
 
   .orb-plum {
-    background: hsl(var(--plum) / 0.08);
+    background: hsl(var(--primary) / 0.1);
   }
 
   .orb-rose {
-    background: hsl(var(--rose) / 0.07);
+    background: hsl(var(--primary) / 0.08);
   }
 
   .orb-mauve {
-    background: hsl(var(--mauve) / 0.07);
+    background: hsl(var(--primary) / 0.06);
   }
 
   .orb-amber {
-    background: hsl(var(--amber) / 0.06);
+    background: hsl(var(--primary) / 0.05);
   }
 
   /* === Section Divider — solid === */

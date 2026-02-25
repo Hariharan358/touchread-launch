@@ -12,11 +12,11 @@ const Footer = () => (
     <div className="mx-auto max-w-7xl">
       <div className="flex flex-col items-center gap-10 px-6 py-14 sm:flex-row sm:justify-between lg:px-8">
         <div className="flex items-center gap-3">
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-xl overflow-hidden shadow-sm bg-[hsl(280,45%,45%)]">
-            <span className="text-xs font-bold text-white">T</span>
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden bg-[hsl(var(--primary))]">
+            <span className="text-xs font-bold text-white">H</span>
           </div>
           <span className="text-sm font-bold font-display text-foreground">
-            Touch<span className="gradient-text">Read</span>
+            Hable
           </span>
         </div>
 
@@ -25,7 +25,7 @@ const Footer = () => (
             <a
               key={l.label}
               href={l.href}
-              className="text-xs text-muted-foreground transition-all duration-300 hover:text-[hsl(280,45%,45%)]"
+              className="text-xs text-muted-foreground transition-all duration-300 hover:text-[hsl(var(--primary))]"
             >
               {l.label}
             </a>
@@ -42,7 +42,7 @@ const Footer = () => (
               key={s.label}
               href="#"
               aria-label={s.label}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-black/[0.03] border border-black/[0.04] text-muted-foreground transition-all duration-300 hover:bg-[hsl(280,45%,45%,0.06)] hover:text-[hsl(280,45%,45%)] hover:border-[hsl(280,45%,45%,0.12)]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-black/[0.03] border border-black/[0.04] text-muted-foreground transition-all duration-300 hover:bg-primary/5 hover:text-primary hover:border-primary/20"
             >
               <s.icon size={16} />
             </a>
@@ -52,9 +52,7 @@ const Footer = () => (
 
       <div className="border-t border-black/[0.04] px-6 py-5 text-center">
         <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
-          © {new Date().getFullYear()} TouchRead by PortableBraille. Made with{" "}
-          <Heart size={10} className="text-rose-400 fill-rose-400" />{" "}
-          for accessibility.
+          © {new Date().getFullYear()} Hable. Making independence affordable.
         </p>
       </div>
     </div>
