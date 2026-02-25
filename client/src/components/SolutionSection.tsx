@@ -17,15 +17,12 @@ const SolutionSection = () => (
           <div className="bg-white rounded-[3rem] p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white overflow-hidden">
             <img
               src="/hable-usage.png"
-              alt="How to use Hable"
+              alt="How to use TouchRead"
               className="w-full h-full object-contain animate-float"
             />
           </div>
 
-          <div className="absolute -bottom-6 -right-6 bg-primary p-8 rounded-[2rem] shadow-2xl hidden md:block max-w-[200px]">
-            <div className="text-4xl font-black text-black mb-1">100%</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-black/60">Tactile Confidence</div>
-          </div>
+
         </motion.div>
 
         {/* Content */}
@@ -35,7 +32,7 @@ const SolutionSection = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="badge-hable mb-8">How it works</span>
+
           <h2 className="text-4xl font-black text-black sm:text-5xl lg:text-6xl leading-[1.05]">
             The world at your <br />
             <span className="text-primary-foreground bg-primary px-3 inline-block transform -skew-x-3">fingertips.</span>
@@ -46,7 +43,7 @@ const SolutionSection = () => (
               {
                 step: "01",
                 title: "Connect via Bluetooth",
-                desc: "Pair Hable with your iPhone or Android in seconds. No apps required, it just works."
+                desc: "Pair TouchRead with your iPhone or Android in seconds. No apps required, it just works."
               },
               {
                 step: "02",

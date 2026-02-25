@@ -14,13 +14,13 @@ const CTASection = () => (
           </h2>
           <p className="mt-8 text-xl text-black/70 font-semibold max-w-xl">
             Join thousands of individuals who have already found their independence.
-            The Hable One is ready for you.
+            The TouchRead is ready for you.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 shrink-0">
           <button className="btn-hable-dark group gap-3 py-6 px-12 text-lg">
-            <span>Buy Hable One</span> <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+            <span>Buy TouchRead</span> <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
           </button>
 
           <div className="flex flex-col gap-2">

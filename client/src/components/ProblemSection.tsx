@@ -52,7 +52,7 @@ const ProblemSection = () => (
           className="relative"
         >
           <div className="rounded-[2.5rem] bg-hable-dark border border-white/5 p-12 lg:p-16">
-            <h3 className="text-2xl font-black text-white mb-8">The Hable Way</h3>
+            <h3 className="text-2xl font-black text-white mb-8">The TouchRead Way</h3>
             <div className="space-y-8">
               {[
                 { title: "Physical Control", desc: "Real buttons you can feel and trust.", icon: CheckCircle },
@@ -72,7 +72,11 @@ const ProblemSection = () => (
             </div>
 
             <div className="mt-12 pt-12 border-t border-white/5">
-              <a href="#cta" className="btn-hable-primary w-full">
+              <img
+                src="/mobile.jpeg"
+                alt="TouchRead Technical Schematic"
+                className="w-full opacity-80 hover:opacity-100 transition-opacity duration-500"
+              />  <a href="#cta" className="btn-hable-primary w-full">
                 I want this freedom
               </a>
             </div>

@@ -4,7 +4,7 @@ import heroDevice from "@/assets/hero-device.png";
 
 const products = [
   {
-    name: "Hable One",
+    name: "TouchRead",
     price: "249",
     tagline: "The world's smallest Braille keyboard.",
     features: ["All-day typing", "Pocket sized", "Bluetooth pairing"],
@@ -12,7 +12,7 @@ const products = [
     popular: true
   },
   {
-    name: "Hable One — Refurbished",
+    name: "TouchRead — Refurbished",
     price: "189",
     tagline: "Eco-friendly, perfectly tested.",
     features: ["Same warranty", "Thoroughly tested", "Limited stock"],
@@ -20,7 +20,7 @@ const products = [
     popular: false
   },
   {
-    name: "Hable Accessories",
+    name: "TouchRead Accessories",
     price: "49",
     tagline: "Protection and portability.",
     features: ["Travel case", "Charging dock", "Lanyard set"],
@@ -67,7 +67,7 @@ const PricingSection = () => (
               <p className="text-gray-400 font-bold text-sm uppercase tracking-widest mb-6">{p.tagline}</p>
 
               <div className="flex items-baseline gap-1 mb-8">
-                <span className="text-sm font-black text-gray-400">€</span>
+                <span className="text-sm font-black text-gray-400">₹</span>
                 <span className="text-5xl font-black text-black">{p.price}</span>
               </div>
 
@@ -91,7 +91,7 @@ const PricingSection = () => (
 
       <div className="mt-20 text-center">
         <p className="text-gray-400 font-medium">
-          Free worldwide shipping on all Hable One devices. <br />
+          Free worldwide shipping on all TouchRead devices. <br />
           <a href="#" className="text-black font-black border-b-2 border-primary hover:border-black transition-colors">Compare all products</a>
         </p>
       </div>

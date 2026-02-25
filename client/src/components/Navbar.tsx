@@ -4,8 +4,8 @@ import { Menu, X, ShoppingBag, User } from "lucide-react";
 
 const navLinks = [
   { label: "Shop All", href: "#" },
-  { label: "Hable One", href: "#" },
-  { label: "Hable Easy", href: "#" },
+  { label: "TouchRead", href: "#" },
+  { label: "TouchRead Easy", href: "#" },
   { label: "Speechlabel", href: "#" },
   { label: "Stactiles", href: "#" },
 ];
@@ -24,9 +24,9 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Announcement Bar */}
       <div className="bg-[#f87171] py-2 px-6 text-center text-white text-[11px] font-medium tracking-tight flex items-center justify-center gap-1">
-        <span>☆ Prefer to pay by invoice? Email support@iamhable.com</span>
+        <span>☆ Prefer to pay by invoice? Email info@touchread.com</span>
         <div className="hidden md:flex absolute right-8 gap-4 items-center">
-          <span className="flex items-center gap-1 cursor-pointer hover:opacity-80">Netherlands (EUR €) <Menu size={10} className="rotate-90" /></span>
+          <span className="flex items-center gap-1 cursor-pointer hover:opacity-80">India (INR ₹) <Menu size={10} className="rotate-90" /></span>
           <span className="flex items-center gap-1 cursor-pointer hover:opacity-80">English <Menu size={10} className="rotate-90" /></span>
         </div>
       </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
             {/* Logo */}
             <a href="#" className="flex items-center">
               <div className="bg-[#f87171] hover:bg-[#f65a5a] text-white px-5 py-2.5 rounded-full transition-colors flex items-center justify-center">
-                <span className="text-xl font-bold tracking-tighter leading-none h-5">hable</span>
+                <span className="text-xl font-bold tracking-tight leading-none h-5">TouchRead</span>
               </div>
             </a>
 

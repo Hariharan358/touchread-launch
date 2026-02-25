@@ -20,7 +20,7 @@ const TechnicalSection = () => (
             <span className="text-primary italic">Big impact.</span>
           </h2>
           <p className="mt-8 text-xl text-gray-400 font-medium leading-relaxed">
-            Every millimeter of the Hable One is engineered for comfort and durability.
+            Every millimeter of the TouchRead is engineered for comfort and durability.
             We've packed industry-leading technology into a device that fits in the palm of your hand.
           </p>
 

@@ -15,7 +15,7 @@ const StructureSection = () => (
                     <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
                         <img
                             src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80"
-                            alt="Structuring life with Hable"
+                            alt="Structuring life with TouchRead"
                             className="object-cover w-full h-full"
                         />
                     </div>

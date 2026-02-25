@@ -7,7 +7,7 @@ const Footer = () => (
         {/* Brand */}
         <div className="col-span-1 lg:col-span-1">
           <a href="#" className="text-3xl font-black font-display tracking-tighter uppercase mb-8 block">
-            Hable<span className="text-black bg-primary px-1">.</span>
+            TouchRead<span className="text-black bg-primary px-1">.</span>
           </a>
           <p className="text-gray-400 font-medium leading-relaxed mb-8 max-w-xs">
             Making the digital world accessible for everyone. High-quality assistive tech designed in the Netherlands.
