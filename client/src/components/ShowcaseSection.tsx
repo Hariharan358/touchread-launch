@@ -38,7 +38,7 @@ const ShowcaseSection = () => (
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-3xl font-bold text-center mb-16 underline decoration-1 underline-offset-8">Customer reviews</h3>
+        <h3 className="text-3xl font-bold text-center mb-16 underline decoration-1 underline-offset-8">Future customer reviews</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((t, i) => (

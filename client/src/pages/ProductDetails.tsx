@@ -171,7 +171,7 @@ const ProductDetails = () => {
                         <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
                             <div className="flex items-center gap-8">
                                 <button className="text-2xl font-black text-black border-b-4 border-black pb-2 px-1">
-                                    Reviews <span className="text-gray-400 text-sm font-bold ml-1">44</span>
+                                    Future Reviews <span className="text-gray-400 text-sm font-bold ml-1">44</span>
                                 </button>
                                 <button className="text-2xl font-black text-gray-400 hover:text-black transition-colors pb-2 px-1">
                                     Questions <span className="text-gray-400 text-sm font-bold ml-1">3</span>
