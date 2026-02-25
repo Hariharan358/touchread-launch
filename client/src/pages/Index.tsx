@@ -12,7 +12,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <main>
+  <main className="noise-overlay">
     <Navbar />
     <HeroSection />
     <SocialProofBar />
