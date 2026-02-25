@@ -14,11 +14,11 @@ const SolutionSection = () => (
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="bg-white rounded-[3rem] p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white">
+          <div className="bg-white rounded-[3rem] p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white overflow-hidden">
             <img
-              src={heroDevice}
-              alt="Hable One device"
-              className="w-full animate-float"
+              src="/hable-usage.png"
+              alt="How to use Hable"
+              className="w-full h-full object-contain animate-float"
             />
           </div>
 

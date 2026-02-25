@@ -95,6 +95,15 @@ const HeroSection = () => {
               <div className="text-xs font-black uppercase tracking-widest text-primary mb-1">Tactile Feedback</div>
               <div className="text-sm font-semibold text-black">Physical Keypad</div>
             </motion.div>
+
+            <motion.div
+              animate={{ x: [0, 5, 0], y: [0, 5, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              className="absolute -right-8 bottom-0 bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 hidden lg:block max-w-[120px]"
+            >
+              <img src="/mobile.jpeg" alt="Internal" className="rounded-lg mb-2 grayscale hover:grayscale-0 transition-all" />
+              <div className="text-[8px] font-black uppercase tracking-wider text-black text-center">Smart Integration</div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -16,9 +16,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    /* Hable Yellow — high contrast primary */
-    --primary: 48 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    /* Hable Red — high contrast primary */
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 5%;
@@ -26,19 +26,20 @@
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 48 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 48 100% 50%;
+    --ring: 0 72% 51%;
 
     --radius: 0.75rem;
 
     /* Specific Hable colors */
+    --hable-red: #E02424;
     --hable-yellow: #FFD200;
     --hable-black: #000000;
     --hable-dark: #121212;
@@ -93,7 +94,7 @@
 
   /* === Buttons — Hable Style === */
   .btn-hable-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-yellow)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-red)] px-8 py-4 text-sm font-extrabold tracking-wider text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
   }
 
   .btn-hable-dark {
@@ -101,7 +102,7 @@
   }
 
   .btn-hable-outline {
-    @apply inline-flex items-center justify-center rounded-full border-2 border-[var(--hable-black)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:bg-[var(--hable-black)] hover:text-white uppercase;
+    @apply inline-flex items-center justify-center rounded-full border-2 border-[var(--hable-red)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:bg-[var(--hable-red)] hover:text-white uppercase;
   }
 
   /* === Cards === */
@@ -117,8 +118,8 @@
   /* === Badges === */
   .badge-hable {
     @apply inline-flex items-center rounded-full px-4 py-1.5 text-xs font-bold tracking-widest text-[var(--hable-black)] uppercase border;
-    background-color: rgba(255, 210, 0, 0.1);
-    border-color: rgba(255, 210, 0, 0.2);
+    background-color: rgba(224, 36, 36, 0.1);
+    border-color: rgba(224, 36, 36, 0.2);
   }
 
   /* === Grid Patterns === */
@@ -147,8 +148,8 @@
 
   /* === Selection === */
   ::selection {
-    background: var(--hable-yellow);
-    color: #000;
+    background: var(--hable-red);
+    color: #fff;
   }
 }
 
@@ -167,5 +168,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFD200;
+  background: var(--hable-red);
 }
