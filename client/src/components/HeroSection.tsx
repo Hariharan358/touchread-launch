@@ -1,111 +1,74 @@
 import { motion } from "framer-motion";
-import { Play, ArrowRight } from "lucide-react";
-import heroDevice from "@/assets/hero-device.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white pt-24 lg:pt-32">
-      <div className="bg-dot-grid absolute inset-0 z-0" />
+    <section className="relative min-h-[90vh] overflow-hidden bg-[#fafafa] pt-40 pb-20">
+      {/* Background radial highlight */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white rounded-full blur-[100px] opacity-80" />
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 py-12 lg:flex-row lg:gap-20 lg:px-8 lg:py-24">
-        {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 text-center lg:text-left"
-        >
+      <div className="relative z-10 mx-auto max-w-7xl px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-6 inline-flex items-center rounded-full bg-primary/10 px-6 py-2 text-xs font-black uppercase tracking-[0.2em] text-black"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 text-center lg:text-left pt-10 lg:pt-0"
           >
-            Award-winning assistive tech
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-block bg-[#f87171] text-white px-5 py-2 rounded-2xl text-xs font-black uppercase tracking-[0.1em] mb-10"
+            >
+              Smallest braille keyboard!
+            </motion.div>
+
+            <h1 className="text-7xl lg:text-9xl font-black text-black tracking-tighter mb-10">
+              Hable One
+            </h1>
+
+            <p className="text-xl lg:text-2xl font-medium text-black leading-tight max-w-xl mb-12">
+              The ultimate Braille Keyboard, boosting typing speed and offering full screen reader control on phones and tablets
+            </p>
+
+            <a href="#" className="inline-block bg-black hover:bg-black/90 text-white px-8 py-5 rounded-xl text-lg font-black transition-all">
+              Shop Now!
+            </a>
           </motion.div>
 
-          <h1 className="text-5xl font-black leading-[1.05] tracking-tight text-black sm:text-6xl lg:text-7xl xl:text-8xl">
-            Smartphone access <br />
-            <span className="text-primary-foreground bg-primary px-3 inline-block transform -skew-x-6">made simple.</span>
-          </h1>
-
-          <p className="mt-8 max-w-xl mx-auto lg:mx-0 text-xl leading-relaxed text-gray-500 font-medium">
-            Empowering blind and visually impaired individuals to navigate their digital world with confidence and independence.
-          </p>
-
-          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-            <a href="#cta" className="btn-hable-primary gap-3 py-5 px-10">
-              <span>View Products</span> <ArrowRight size={20} />
-            </a>
-            <a href="#solution" className="btn-hable-outline gap-3 py-5 px-10">
-              <Play size={20} className="fill-current" /> Watch Video
-            </a>
-          </div>
-
-          <div className="mt-16 flex items-center gap-12 justify-center lg:justify-start">
-            {[
-              { label: "Used in", value: "30+ Countries" },
-              { label: "Weight", value: "< 100g" },
-              { label: "Battery", value: "1 Month" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-2xl font-black text-black">{stat.value}</div>
-                <div className="text-xs font-bold uppercase tracking-widest text-gray-400 mt-1">{stat.label}</div>
+          {/* Right Visuals */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="flex-[1.2] relative flex justify-center items-center"
+          >
+            <div className="relative w-full max-w-2xl flex items-center justify-end pr-10">
+              {/* Hand holding device */}
+              <div className="relative z-20 transform -translate-x-10">
+                <img
+                  src="/hable-usage.png"
+                  alt="Hable One in hand"
+                  className="w-[350px] lg:w-[480px] drop-shadow-2xl"
+                />
               </div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Right - Product Showcase */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="relative flex-1 perspective-1000"
-        >
-          <div className="absolute inset-0 m-auto h-[120%] w-[120%] -z-10 bg-primary/5 rounded-full blur-[100px] animate-pulse" />
+              {/* Phone showing text */}
+              <div className="relative z-10 -ml-20 transform translate-y-10">
+                <img
+                  src="/mobile.jpeg"
+                  alt="Connected phone"
+                  className="w-[220px] lg:w-[320px] rounded-[40px] shadow-2xl origin-bottom-right -rotate-6"
+                />
+              </div>
 
-          <div className="relative mx-auto max-w-lg">
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <img
-                src={heroDevice}
-                alt="Hable One — portable Braille keyboard"
-                className="w-full drop-shadow-[0_50px_80px_rgba(0,0,0,0.15)]"
-              />
-            </motion.div>
-
-            {/* Callouts */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-4 top-1/4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden md:block"
-            >
-              <div className="text-xs font-black uppercase tracking-widest text-primary mb-1">Easy Pairing</div>
-              <div className="text-sm font-semibold text-black">Any Bluetooth Device</div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-8 bottom-1/4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden md:block"
-            >
-              <div className="text-xs font-black uppercase tracking-widest text-primary mb-1">Tactile Feedback</div>
-              <div className="text-sm font-semibold text-black">Physical Keypad</div>
-            </motion.div>
-
-            <motion.div
-              animate={{ x: [0, 5, 0], y: [0, 5, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              className="absolute -right-8 bottom-0 bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 hidden lg:block max-w-[120px]"
-            >
-              <img src="/mobile.jpeg" alt="Internal" className="rounded-lg mb-2 grayscale hover:grayscale-0 transition-all" />
-              <div className="text-[8px] font-black uppercase tracking-wider text-black text-center">Smart Integration</div>
-            </motion.div>
-          </div>
-        </motion.div>
+              {/* Background red dot decoration like in screenshot */}
+              <div className="absolute top-1/2 left-0 w-3 h-3 bg-[#f87171] rounded-full" />
+              <div className="absolute bottom-1/4 left-1/2 w-4 h-4 bg-[#f87171]/20 rounded-full" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

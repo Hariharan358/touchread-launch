@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingBag, User } from "lucide-react";
 
 const navLinks = [
+  { label: "Shop All", href: "#" },
   { label: "Hable One", href: "#" },
-  { label: "Products", href: "#features" },
-  { label: "How it works", href: "#solution" },
-  { label: "Support", href: "#technical" },
+  { label: "Hable Easy", href: "#" },
+  { label: "Speechlabel", href: "#" },
+  { label: "Stactiles", href: "#" },
 ];
 
 const Navbar = () => {
@@ -20,85 +21,95 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white py-3 shadow-md" : "bg-transparent py-5"
-        }`}
-    >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <span className="text-2xl font-black font-display tracking-tighter text-black uppercase">
-              Hable<span className="text-primary-foreground bg-primary px-1 font-black">.</span>
-            </span>
-          </a>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-extrabold uppercase tracking-widest text-black hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            <button className="hidden md:flex p-2 text-black hover:text-primary transition-colors">
-              <ShoppingCart size={20} />
-            </button>
-            <a href="#cta" className="btn-hable-primary !py-2.5 !px-6 text-xs transform-none">
-              Shop Now
-            </a>
-
-            {/* Mobile Toggle */}
-            <button
-              className="md:hidden text-black"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+    <div className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Announcement Bar */}
+      <div className="bg-[#f87171] py-2 px-6 text-center text-white text-[11px] font-medium tracking-tight flex items-center justify-center gap-1">
+        <span>☆ Prefer to pay by invoice? Email support@iamhable.com</span>
+        <div className="hidden md:flex absolute right-8 gap-4 items-center">
+          <span className="flex items-center gap-1 cursor-pointer hover:opacity-80">Netherlands (EUR €) <Menu size={10} className="rotate-90" /></span>
+          <span className="flex items-center gap-1 cursor-pointer hover:opacity-80">English <Menu size={10} className="rotate-90" /></span>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl md:hidden overflow-hidden"
-          >
-            <div className="flex flex-col p-6 gap-4">
+      <nav
+        className={`transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md py-4 shadow-sm" : "bg-white py-6"
+          }`}
+      >
+        <div className="mx-auto max-w-7xl px-8">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <a href="#" className="flex items-center">
+              <div className="bg-[#f87171] hover:bg-[#f65a5a] text-white px-5 py-2.5 rounded-full transition-colors flex items-center justify-center">
+                <span className="text-xl font-bold tracking-tighter leading-none h-5">hable</span>
+              </div>
+            </a>
+
+            {/* Desktop Links */}
+            <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-sm font-extrabold uppercase tracking-widest text-black py-2"
+                  className="text-[14px] font-bold text-black hover:opacity-60 transition-opacity"
                 >
                   {link.label}
                 </a>
               ))}
-              <hr className="my-2 border-gray-50" />
-              <a
-                href="#cta"
-                className="btn-hable-primary w-full"
-                onClick={() => setMobileOpen(false)}
-              >
-                Shop Now
-              </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+
+            {/* Actions */}
+            <div className="flex items-center gap-6">
+              <button className="hidden md:block text-black hover:opacity-60 transition-opacity">
+                <User size={24} strokeWidth={1.5} />
+              </button>
+              <button className="flex items-center gap-2 text-black hover:opacity-60 transition-opacity relative group">
+                <div className="relative">
+                  <ShoppingBag size={24} strokeWidth={1.5} />
+                  <span className="absolute -top-1 -right-1 bg-black text-white text-[9px] font-bold h-3.5 w-3.5 rounded-full flex items-center justify-center">0</span>
+                </div>
+                <div className="hidden xl:flex flex-col items-start leading-none text-left">
+                  <span className="text-[10px] font-bold opacity-40 uppercase tracking-widest">Subtotal</span>
+                  <span className="text-[13px] font-bold">€0,00</span>
+                </div>
+              </button>
+
+              {/* Mobile Toggle */}
+              <button
+                className="lg:hidden text-black"
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="bg-white lg:hidden overflow-hidden shadow-xl"
+            >
+              <div className="flex flex-col p-8 gap-6">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-lg font-bold text-black"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </div>
   );
 };
 
