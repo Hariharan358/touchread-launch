@@ -10,7 +10,7 @@ const Footer = () => (
             TouchRead<span className="text-black bg-primary px-1">.</span>
           </a>
           <p className="text-gray-400 font-medium leading-relaxed mb-8 max-w-xs">
-            Making the digital world accessible for everyone. High-quality assistive tech designed in the Netherlands.
+            Making the digital world accessible for everyone. High-quality assistive tech designed in India.
           </p>
           <div className="flex gap-4">
             {[Instagram, Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
@@ -25,7 +25,7 @@ const Footer = () => (
         {[
           {
             title: "Products",
-            links: ["Hable One", "Hable Easy", "Refurbished", "Accessories"]
+            links: ["TouchRead", "TouchRead Easy", "Refurbished", "Accessories"]
           },
           {
             title: "Support",
@@ -53,10 +53,10 @@ const Footer = () => (
 
       <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-sm text-gray-500 font-medium">
-          © {new Date().getFullYear()} Hable. All rights reserved.
+          © {new Date().getFullYear()} TouchRead. All rights reserved.
         </p>
         <div className="flex gap-8 text-[11px] font-black uppercase tracking-widest text-gray-600">
-          <span>Designed in Delft</span>
+          <span>Designed in India</span>
           <span className="text-primary">●</span>
           <span>Made for everyone</span>
         </div>
