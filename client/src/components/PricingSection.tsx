@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
@@ -26,77 +26,77 @@ const plans = [
 ];
 
 const PricingSection = () => (
-  <section id="pricing" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-b)" }}>
+  <section id="pricing" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
     <div className="section-divider absolute top-0 left-0 right-0" />
 
-    <div className="orb orb-plum w-[400px] h-[400px] top-[30%] left-[-10%] animate-float-slow" />
-    <div className="orb orb-rose w-[350px] h-[350px] bottom-[10%] right-[-10%] animate-float-faster" />
-
-    <div className="relative z-10 mx-auto max-w-7xl">
+    <div className="relative z-10 mx-auto max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="text-center"
+        className="text-center mb-20"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(280,45%,45%,0.15)] bg-[hsl(280,45%,45%,0.05)] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[hsl(280,45%,45%)]">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">
           Pricing
-        </span>
-        <h2 className="mt-5 text-3xl font-bold text-foreground font-display sm:text-4xl lg:text-5xl">
-          Choose Your <span className="gradient-text italic">Edition</span>
+        </p>
+        <h2 className="text-4xl font-display text-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
+          Choose your <span className="gradient-text">edition</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-muted-foreground">
+        <p className="mx-auto mt-5 max-w-md text-muted-foreground font-light">
           Transparent pricing. No hidden fees. Shipping worldwide.
         </p>
       </motion.div>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-3 items-start">
+      <div className="grid gap-5 md:grid-cols-3 items-start">
         {plans.map((p, i) => (
           <motion.div
             key={p.name}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.7 }}
+            transition={{ delay: i * 0.12, duration: 0.6 }}
             className={`relative ${p.featured ? 'md:-mt-4 md:mb-4' : ''}`}
           >
-            <div className={`${p.featured ? 'shimmer-border' : ''} rounded-2xl`}>
-              <div className={`glass-card-strong rounded-2xl p-8 h-full transition-all duration-700 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] ${p.featured ? 'border-[hsl(280,45%,45%,0.18)] bg-[hsl(280,45%,45%,0.02)]' : ''}`}>
-                {p.featured && (
-                  <span className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-purple-50 border border-purple-200/50 px-3 py-1 text-xs font-semibold text-[hsl(280,45%,45%)]">
-                    <Star size={10} className="fill-[hsl(280,45%,45%)]" />
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="text-xl font-bold text-foreground font-display">{p.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+            <div className={`rounded-3xl p-8 md:p-10 h-full transition-all duration-500 hover:-translate-y-2 ${p.featured
+                ? 'bg-foreground text-[hsl(36,60%,97%)] shadow-[0_20px_60px_hsl(30,10%,12%,0.2)] hover:shadow-[0_24px_70px_hsl(30,10%,12%,0.25)]'
+                : 'bg-[hsl(var(--card))] border border-[hsl(var(--border))] shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]'
+              }`}>
+              {p.featured && (
+                <span className="mb-5 inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">
+                  Most Popular
+                </span>
+              )}
+              <h3 className="text-xl font-display">{p.name}</h3>
+              <p className={`mt-1 text-sm font-light ${p.featured ? 'text-white/50' : 'text-muted-foreground'}`}>{p.desc}</p>
 
-                <div className="mt-7">
-                  <span className="text-5xl font-extrabold gradient-text font-display">{p.price}</span>
-                  <span className="ml-2 text-sm text-muted-foreground">USD</span>
-                </div>
-
-                <div className="my-7 h-px bg-black/[0.06]" />
-
-                <ul className="space-y-4">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-purple-50 shrink-0">
-                        <Check size={12} className="text-[hsl(280,45%,45%)]" />
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#cta"
-                  className={`mt-8 w-full ${p.featured ? "btn-primary" : "btn-outline-cyan"} justify-center gap-2`}
-                >
-                  <span>Get Started</span> <ArrowRight size={14} />
-                </a>
+              <div className="mt-8">
+                <span className="text-5xl font-display">{p.price}</span>
+                <span className={`ml-2 text-sm ${p.featured ? 'text-white/40' : 'text-muted-foreground'}`}>USD</span>
               </div>
+
+              <div className={`my-8 h-px ${p.featured ? 'bg-white/10' : 'bg-foreground/8'}`} />
+
+              <ul className="space-y-4">
+                {p.features.map((f) => (
+                  <li key={f} className={`flex items-center gap-3 text-sm ${p.featured ? 'text-white/60' : 'text-muted-foreground'}`}>
+                    <span className={`flex h-5 w-5 items-center justify-center rounded-full shrink-0 ${p.featured ? 'bg-white/10' : 'bg-foreground/5'}`}>
+                      <Check size={12} className={p.featured ? 'text-white/70' : 'text-foreground/50'} />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#cta"
+                className={`mt-10 w-full flex items-center justify-center gap-2 rounded-full px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${p.featured
+                    ? 'bg-[hsl(36,60%,97%)] text-foreground hover:bg-[hsl(36,40%,93%)]'
+                    : 'bg-foreground text-[hsl(36,60%,97%)] hover:bg-[hsl(30,10%,22%)]'
+                  }`}
+              >
+                <span>Get Started</span> <ArrowRight size={14} />
+              </a>
             </div>
           </motion.div>
         ))}

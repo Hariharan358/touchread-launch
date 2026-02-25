@@ -1,31 +1,24 @@
 import { motion } from "framer-motion";
-import { Shield, Sparkles, Cpu, Bluetooth } from "lucide-react";
 
 const items = [
-  { icon: Shield, label: "Built for Accessibility" },
-  { icon: Sparkles, label: "Designed for Independence" },
-  { icon: Cpu, label: "Edge AI Powered" },
-  { icon: Bluetooth, label: "Bluetooth Enabled" },
+  "Built for Accessibility",
+  "Designed for Independence",
+  "Edge AI Powered",
+  "Bluetooth Enabled",
 ];
 
 const SocialProofBar = () => (
-  <section className="relative border-y border-black/[0.04] overflow-hidden">
-    <div className="absolute inset-0 bg-white/50 backdrop-blur-xl" />
-
-    <div className="relative z-10 mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-10 px-6 py-7 lg:justify-between lg:px-8">
-      {items.map((item, i) => (
+  <section className="relative border-y border-foreground/6 overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
+    <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-8 md:gap-16 px-6 py-8 lg:justify-between lg:px-8">
+      {items.map((label, i) => (
         <motion.div
-          key={item.label}
-          initial={{ opacity: 0, y: 12 }}
+          key={label}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: i * 0.12, duration: 0.5 }}
-          className="flex items-center gap-3 group"
+          transition={{ delay: i * 0.1, duration: 0.5 }}
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[hsl(280,45%,45%,0.07)] group-hover:bg-[hsl(280,45%,45%,0.12)] transition-colors duration-300">
-            <item.icon size={16} className="text-[hsl(280,45%,45%)]" />
-          </div>
-          <span className="text-sm font-semibold tracking-wide text-foreground/80">{item.label}</span>
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">{label}</span>
         </motion.div>
       ))}
     </div>
