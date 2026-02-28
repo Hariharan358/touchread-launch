@@ -30,7 +30,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-xl lg:text-2xl font-medium text-gray-500 leading-tight max-w-xl">
-              The ultimate <span className="text-black font-bold font-display">Braille Keyboard</span>, boosting typing speed and offering full screen reader control.
+               Empowering visually impaired users with  <span className="text-black font-bold font-display"> affordable Portable Braille Device </span>, allow  access to digital content.
             </p>
           </motion.div>
 
