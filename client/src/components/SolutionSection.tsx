@@ -16,7 +16,7 @@ const SolutionSection = () => (
         >
           <div className="bg-white rounded-[3rem] p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white overflow-hidden">
             <img
-              src="/hable-usage.png"
+              src="/Screenshot 2025-01-06 at 4.12.00 AM copy.png"
               alt="How to use TouchRead"
               className="w-full h-full object-contain animate-float"
             />

@@ -11,7 +11,7 @@ const Index = () => (
   <main className="noise-overlay">
     <Navbar />
     <HeroSection />
-    <SocialProofBar />
+    
     <ShowcaseSection />
     <StructureSection />
     <AffordabilitySection />

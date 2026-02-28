@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { text: "The Hable 1 is an incredible little smart phone keyboard. It has made using my phone so much easier.", author: "Verified Customer", stars: 5 },
-  { text: "The Hable Easy makes it a lot easier to use my smartphone for daily tasks.", author: "Verified Customer", stars: 5 },
+  { text: "The TouchRead 1 is an incredible little smart phone keyboard. It has made using my phone so much easier.", author: "Verified Customer", stars: 5 },
+  { text: "The TouchRead Easy makes it a lot easier to use my smartphone for daily tasks.", author: "Verified Customer", stars: 5 },
   { text: "Super useful device for my independence. Highly recommend!", author: "Verified Customer", stars: 5 },
-  { text: "Hable has truly changed how I interact with technology.", author: "Verified Customer", stars: 5 },
+  { text: "TouchRead has truly changed how I interact with technology.", author: "Verified Customer", stars: 5 },
 ];
 
 const userPhotos = [
@@ -23,7 +23,7 @@ const ShowcaseSection = () => (
     <div className="mx-auto max-w-full px-6">
       <div className="flex items-center gap-6 mb-12">
         <h2 className="text-3xl font-bold text-black whitespace-nowrap">
-          Trusted by thousands worldwide every day
+          Will be trusted by thousands worldwide every day
         </h2>
         <div className="h-px bg-black/[0.1] w-full" />
       </div>
