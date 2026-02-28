@@ -1,45 +1,56 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-const tags = [
-  { label: "messages", className: "tag-notes" },
-  { label: "articles", className: "tag-bookmarks" },
-  { label: "books", className: "tag-inspiration" },
-  { label: "conversations", className: "tag-articles" },
-  { label: "alerts", className: "tag-images" },
-];
+import { Link } from "react-router-dom";
+import heroDevice from "@/assets/hero-device.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-20 hero-glow-container text-center">
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl"
-        >
-          <h1 className="text-6xl font-display leading-[0.95] tracking-tight text-foreground sm:text-8xl lg:text-9xl xl:text-[10rem]">
-            Universal access.
-            <br />
-            <span className="opacity-80 italic">Communicate freely.</span>
-          </h1>
+    <section className="relative min-h-[90vh] overflow-hidden bg-[#fafafa] pt-40 pb-20">
+      {/* Background radial highlight */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white rounded-full blur-[100px] opacity-80" />
+      <div className="bg-dot-grid absolute inset-0 z-0" />
 
-          
+      <div className="relative z-10 mx-auto max-w-7xl px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex-1 text-center lg:text-left pt-10 lg:pt-0"
+          >
+            <h1
+              style={{ fontFamily: "'Syne', sans-serif" }}
+              className="text-6xl lg:text-8xl xl:text-9xl font-extrabold leading-[0.8] tracking-[-0.04em] text-black mb-10"
+            >
+              <span className="relative inline-block">
+                Touch <br />
+                <span className="text-primary italic">Read.</span>
+              </span>
+            </h1>
 
-          <div className="mt-16 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-            <a href="#cta" className="btn-primary flex items-center gap-4 text-xs font-bold tracking-[0.2em] bg-[hsl(18,76%,62%)] border-none hover:bg-[hsl(18,76%,55%)]">
-              GET THE DEVICE <ArrowRight size={14} />
-            </a>
-            <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
-              <a href="#solution" className="hover:text-foreground transition-colors">How it works</a>
-              <span className="opacity-20">/</span>
-              <a href="#technical" className="hover:text-foreground transition-colors">Tech Specs</a>
-              <span className="opacity-20">/</span>
-              <a href="#pricing" className="hover:text-foreground transition-colors">Pre-Order</a>
+            <p className="text-xl lg:text-2xl font-medium text-gray-500 leading-tight max-w-xl">
+              The ultimate <span className="text-black font-bold font-display">Braille Keyboard</span>, boosting typing speed and offering full screen reader control.
+            </p>
+          </motion.div>
+
+          {/* Right Visuals */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 8, ease: "easeOut" }}
+            className="flex-1 relative flex justify-center items-center"
+          >
+            <div className="relative w-full max-w-xl group">
+              <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-1000" />
+              <img
+                src={heroDevice}
+                alt="TouchRead Portable Braille keyboard"
+                className="w-full drop-shadow-[0_50px_80px_rgba(0,0,0,0.15)]  group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              />
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

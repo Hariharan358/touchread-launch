@@ -1,53 +1,75 @@
 import { motion } from "framer-motion";
-import { Cpu, Cog, CircuitBoard, Battery, Bluetooth } from "lucide-react";
+import { Cpu, Bluetooth, Battery, Package, Ruler } from "lucide-react";
 
 const specs = [
-  { icon: Cpu, title: "ESP32 Core", desc: "Dual-core 240 MHz with built-in Wi-Fi & BLE" },
-  { icon: Cog, title: "Solenoid Braille", desc: "Precision electromagnetic solenoid actuators" },
-  { icon: CircuitBoard, title: "ULN2003 Driver", desc: "High-current Darlington driver array" },
-  { icon: Battery, title: "1500mAh Battery", desc: "Rechargeable Li-Po with 12hr runtime" },
-  { icon: Bluetooth, title: "BLE 5.0", desc: "Low-energy Bluetooth for seamless pairing" },
+  { icon: Package, title: "Physical Build", desc: "Durable reinforced ABS with eco-friendly soft-touch finish." },
+  { icon: Ruler, title: "Pocket-Ready", desc: "100mm x 45mm x 15mm. Weighs only 90 grams." },
+  { icon: Bluetooth, title: "Universal Pairing", desc: "Bluetooth Low Energy 5.1. Works with iOS, Android, and PC." },
+  { icon: Battery, title: "Massive Battery", desc: "Li-Po rechargeable. Up to 100 hours of active typing." },
+  { icon: Cpu, title: "Tactile Keypad", desc: "Precision mechanical buttons with high-click longevity." },
 ];
 
 const TechnicalSection = () => (
-  <section id="technical" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-b)" }}>
-    <div className="section-divider absolute top-0 left-0 right-0" />
+  <section id="technical" className="section-dark relative overflow-hidden">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row gap-20 items-start">
+        <div className="lg:sticky lg:top-32 lg:w-1/2">
+          <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-6 block">Technical Excellence</span>
+          <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-7xl leading-[1.1]">
+            Small size. <br />
+            <span className="text-primary italic">Big impact.</span>
+          </h2>
+          <p className="mt-8 text-xl text-gray-400 font-medium leading-relaxed">
+            Every millimeter of the TouchRead is engineered for comfort and durability.
+            We've packed industry-leading technology into a device that fits in the palm of your hand.
+          </p>
 
-    <div className="relative z-10 mx-auto max-w-5xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-20"
-      >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">
-          Under the Hood
-        </p>
-        <h2 className="text-4xl font-display text-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
-          Technical <span className="gradient-text">excellence</span>
-        </h2>
-      </motion.div>
+          <div className="mt-12">
+            <a href="#cta" className="btn-hable-primary">
+              Full Spec Sheet
+            </a>
+          </div>
 
-      <div className="grid gap-0 divide-y divide-foreground/8">
-        {specs.map((s, i) => (
+          {/* Technical Visual */}
           <motion.div
-            key={s.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="group py-8 md:py-10 flex items-center gap-6 md:gap-10"
+            className="mt-16 rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4"
           >
-            <div className="flex items-center justify-center rounded-2xl bg-foreground/[0.04] w-14 h-14 shrink-0 transition-colors duration-300 group-hover:bg-foreground/[0.08]">
-              <s.icon size={24} className="text-foreground/60" />
-            </div>
-            <div>
-              <h3 className="text-lg font-display text-foreground">{s.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground font-light">{s.desc}</p>
+            <img
+              src="/mobile.jpeg"
+              alt="Hable Technical Schematic"
+              className="w-full opacity-80 hover:opacity-100 transition-opacity duration-500"
+            />
+            <div className="mt-4 text-center">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">Internal hardware integration schematic</span>
             </div>
           </motion.div>
-        ))}
+        </div>
+
+        <div className="lg:w-1/2 w-full space-y-6">
+          {specs.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              className="group p-8 rounded-3xl bg-white/5 border border-white/5 transition-all duration-300 hover:bg-white/10"
+            >
+              <div className="flex items-center gap-6">
+                <div className="flex items-center justify-center rounded-2xl bg-primary w-14 h-14 shrink-0 shadow-[0_0_20px_rgba(224,36,36,0.2)]">
+                  <s.icon size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-white">{s.title}</h3>
+                  <p className="mt-2 text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

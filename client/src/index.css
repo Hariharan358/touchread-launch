@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,85 +6,44 @@
 
 @layer base {
   :root {
-    /* ─── MYMIND-INSPIRED WARM CREAM PALETTE ─── */
-    --background: 36 60% 97%;
-    --foreground: 30 10% 12%;
+    /* ─── HABLE-INSPIRED ACCESSIBILITY PALETTE ─── */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
 
-    --card: 36 50% 96%;
-    --card-foreground: 30 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 36 50% 96%;
-    --popover-foreground: 30 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 30 10% 12%;
-    --primary-foreground: 36 60% 97%;
+    /* Hable Red — high contrast primary */
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 40% 93%;
-    --secondary-foreground: 30 10% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 36 30% 91%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 30 10% 12%;
-    --accent-foreground: 36 60% 97%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 36 25% 88%;
-    --input: 36 25% 88%;
-    --ring: 30 10% 12%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 72% 51%;
 
-    --radius: 1.25rem;
+    --radius: 0.75rem;
 
-    /* Minimal accent tokens */
-    --cream: 36 60% 97%;
-    --cream-dark: 36 40% 93%;
-    --warm-black: 30 10% 12%;
-    --warm-gray: 30 8% 45%;
-    --soft-accent: 18 76% 62%;
-
-    /* Hero Background Glow */
-    --hero-glow-orange: 25 100% 75%;
-    --hero-glow-pink: 340 80% 85%;
-    --hero-glow-peach: 30 100% 90%;
-
-    /* Tag styles */
-    --tag-notes: 30 100% 96%;
-    --tag-notes-border: 30 80% 85%;
-    --tag-bookmarks: 330 100% 97%;
-    --tag-bookmarks-border: 330 70% 90%;
-    --tag-inspiration: 200 100% 97%;
-    --tag-inspiration-border: 200 70% 90%;
-    --tag-articles: 0 100% 97%;
-    --tag-articles-border: 0 70% 90%;
-    --tag-images: 45 100% 95%;
-    --tag-images-border: 45 80% 80%;
-
-    /* Shadows — extremely soft */
-    --shadow-soft: 0 2px 16px hsl(30 10% 12% / 0.03);
-    --shadow-card: 0 4px 24px hsl(30 10% 12% / 0.04);
-    --shadow-card-hover: 0 12px 40px hsl(30 10% 12% / 0.07);
-
-    --sidebar-background: 36 50% 96%;
-    --sidebar-foreground: 30 10% 12%;
-    --sidebar-primary: 30 10% 12%;
-    --sidebar-primary-foreground: 36 60% 97%;
-    --sidebar-accent: 36 40% 93%;
-    --sidebar-accent-foreground: 30 10% 12%;
-    --sidebar-border: 36 25% 88%;
-    --sidebar-ring: 30 10% 12%;
-
-    /* Keep for backward compat */
-    --plum: 30 10% 12%;
-    --mauve: 30 8% 45%;
-    --rose: 18 76% 62%;
-    --amber: 38 92% 50%;
-    --indigo: 30 10% 12%;
-    --glass-bg: 36 60% 97% / 1;
-    --glass-border: 36 25% 88%;
-    --glass-bg-strong: 36 50% 96% / 1;
-    --glass-border-strong: 36 25% 88%;
+    /* Specific Hable colors */
+    --hable-red: #E02424;
+    --hable-yellow: #FFD200;
+    --hable-black: #000000;
+    --hable-dark: #121212;
+    --hable-gray: #F5F5F7;
   }
 }
 
@@ -95,384 +54,119 @@
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply font-black tracking-tight;
+  }
 }
 
 /* =============================================
-   MYMIND-INSPIRED MINIMAL DESIGN SYSTEM
+   HABLE-INSPIRED ACCESSIBLE DESIGN SYSTEM
    ============================================= */
 
 @layer components {
 
-  /* === Cards — simple, warm, no glass === */
-  .glass-card {
-    @apply rounded-3xl border relative overflow-hidden;
-    background: hsl(var(--card));
-    border-color: hsl(var(--border));
+  /* === High Contrast Section === */
+  .section-dark {
+    @apply bg-[var(--hable-black)] text-white py-24 md:py-32;
   }
 
-  .glass-card-strong {
-    @apply rounded-3xl border relative overflow-hidden;
-    background: hsl(var(--card));
-    border-color: hsl(var(--border));
-    box-shadow: var(--shadow-card);
+  .section-light {
+    @apply bg-white text-[var(--hable-black)] py-24 md:py-32;
   }
 
-  .glass-card-light {
-    @apply glass-card-strong;
+  .section-gray {
+    @apply bg-[var(--hable-gray)] text-[var(--hable-black)] py-24 md:py-32;
   }
 
-  /* === Accent Text === */
-  .gradient-text {
-    color: hsl(var(--foreground));
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-style: italic;
+  /* === Buttons — Hable Style === */
+  .btn-hable-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-red)] px-8 py-4 text-sm font-extrabold tracking-wider text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
   }
 
-  .gradient-text-cyan {
-    color: hsl(var(--soft-accent));
+  .btn-hable-dark {
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--hable-black)] px-8 py-4 text-sm font-extrabold tracking-wider text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm uppercase;
   }
 
-  /* === Glow Effects — disabled for minimal look === */
-  .glow-cyan {
-    box-shadow: none;
+  .btn-hable-outline {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-[var(--hable-red)] px-8 py-4 text-sm font-extrabold tracking-wider text-black transition-all duration-300 hover:bg-[var(--hable-red)] hover:text-white uppercase;
   }
 
-  /* === Grid Layouts === */
-  .mymind-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-auto-rows: 10px;
-    gap: 16px;
+  /* === Cards === */
+  .product-card {
+    @apply overflow-hidden rounded-3xl bg-white p-6 transition-all duration-500 hover:-translate-y-2;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   }
 
-  .mymind-card {
-    @apply rounded-[2rem] p-8 transition-all duration-700;
-    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-    grid-row-end: span var(--span, 20);
+  .product-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   }
 
-  .mymind-card:hover {
-    @apply shadow-xl -translate-y-1;
+  /* === Badges === */
+  .badge-hable {
+    @apply inline-flex items-center rounded-full px-4 py-1.5 text-xs font-bold tracking-widest text-[var(--hable-black)] uppercase border;
+    background-color: rgba(224, 36, 36, 0.1);
+    border-color: rgba(224, 36, 36, 0.2);
   }
 
-  .card-yellow {
-    background-color: hsl(var(--card-yellow));
-    color: hsl(45 90% 20%);
+  /* === Grid Patterns === */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, #000000 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.05;
   }
 
-  .card-pink {
-    background-color: hsl(var(--card-pink));
-    color: hsl(330 80% 20%);
+  /* === Animations === */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
-  .card-green {
-    background-color: hsl(var(--card-green));
-    color: hsl(150 70% 20%);
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
-  .card-blue {
-    background-color: hsl(var(--card-blue));
-    color: hsl(200 80% 20%);
-  }
-
-  .card-orange {
-    background-color: hsl(var(--card-orange));
-    color: hsl(25 90% 20%);
-  }
-
-  .card-purple {
-    background-color: hsl(var(--card-purple));
-    color: hsl(270 70% 20%);
-  }
-
-  /* === Backgrounds === */
-  .hero-glow-container {
-    background-color: #fcf6f0;
-    background-image:
-      radial-gradient(at 0% 50%, hsla(25, 100%, 80%, 0.4) 0px, transparent 50%),
-      radial-gradient(at 100% 50%, hsla(330, 100%, 85%, 0.3) 0px, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(20, 100%, 85%, 0.2) 0px, transparent 50%);
-    position: relative;
-  }
-
-  .tag-pill {
-    @apply inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300;
-    border: 1.5px solid transparent;
-  }
-
-  .tag-notes {
-    background: hsl(var(--tag-notes));
-    border-color: hsl(var(--tag-notes-border));
-    color: hsl(30 80% 40%);
-  }
-
-  .tag-bookmarks {
-    background: hsl(var(--tag-bookmarks));
-    border-color: hsl(var(--tag-bookmarks-border));
-    color: hsl(330 80% 45%);
-  }
-
-  .tag-inspiration {
-    background: hsl(var(--tag-inspiration));
-    border-color: hsl(var(--tag-inspiration-border));
-    color: hsl(200 80% 45%);
-  }
-
-  .tag-articles {
-    background: hsl(var(--tag-articles));
-    border-color: hsl(var(--tag-articles-border));
-    color: hsl(0 80% 45%);
-  }
-
-  .tag-images {
-    background: hsl(var(--tag-images));
-    border-color: hsl(var(--tag-images-border));
-    color: hsl(45 80% 35%);
-  }
-
-  .hero-gradient {
-    background: var(--hero-bg);
-    position: relative;
-  }
-
-  .section-gradient {
-    background: var(--section-bg-a);
-  }
-
-  .section-gradient-alt {
-    background: var(--section-bg-b);
-  }
-
-  .section-padding {
-    @apply px-6 py-24 md:px-12 lg:px-20 xl:px-28 lg:py-36;
-  }
-
-  /* === Accent Border — minimal === */
-  .gradient-border {
-    position: relative;
-    z-index: 0;
-  }
-
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: hsl(var(--border));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* === Shimmer Border — subtle for mymind feel === */
-  .shimmer-border {
-    position: relative;
-    z-index: 0;
-  }
-
-  .shimmer-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1.5px;
-    background: hsl(var(--foreground) / 0.12);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* === Buttons — mymind style: solid dark, big rounded === */
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full px-10 py-4 text-sm font-bold tracking-wide transition-all duration-500 relative overflow-hidden;
-    background: hsl(var(--warm-black));
-    color: hsl(var(--cream));
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .btn-primary:hover {
-    background: hsl(30 10% 22%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(30 10% 12% / 0.15);
-  }
-
-  .btn-primary>* {
-    position: relative;
-    z-index: 1;
-  }
-
-  .btn-outline-cyan {
-    @apply inline-flex items-center justify-center rounded-full px-10 py-4 text-sm font-bold tracking-wide transition-all duration-500 border relative overflow-hidden;
-    border-color: hsl(var(--foreground) / 0.15);
-    color: hsl(var(--foreground));
-    background: transparent;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .btn-outline-cyan:hover {
-    background: hsl(var(--foreground) / 0.04);
-    border-color: hsl(var(--foreground) / 0.3);
-    transform: translateY(-2px);
-  }
-
-  .btn-cyan {
-    @apply inline-flex items-center justify-center rounded-full px-10 py-4 text-sm font-bold tracking-wide transition-all duration-500 relative overflow-hidden;
-    background: hsl(var(--cream));
-    color: hsl(var(--warm-black));
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .btn-cyan:hover {
-    background: hsl(36 60% 94%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(0 0% 0% / 0.1);
-  }
-
-  /* === Feature Cards — clean === */
-  .feature-card {
-    @apply glass-card-strong p-8 md:p-10 transition-all duration-500;
-  }
-
-  .feature-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-4px);
-  }
-
-  /* === Pricing Cards === */
-  .pricing-card {
-    @apply rounded-3xl p-10 transition-all duration-500 relative overflow-hidden;
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    box-shadow: var(--shadow-card);
-  }
-
-  .pricing-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-4px);
-  }
-
-  .pricing-card-featured {
-    @apply pricing-card;
-    border-color: hsl(var(--foreground) / 0.15);
-    background: hsl(var(--warm-black));
-    color: hsl(var(--cream));
-  }
-
-  .pricing-card-featured:hover {
-    box-shadow: 0 20px 60px hsl(30 10% 12% / 0.2);
-  }
-
-  /* === No noise overlay for mymind look === */
-  .noise-overlay::after {
-    display: none;
-  }
-
-  /* === Floating Orbs — hidden for mymind minimal look === */
-  .orb {
-    display: none;
-  }
-
-  .orb-plum,
-  .orb-rose,
-  .orb-mauve,
-  .orb-amber {
-    display: none;
-  }
-
-  /* === Section Divider === */
-  .section-divider {
-    height: 1px;
-    background: hsl(var(--foreground) / 0.06);
-  }
-}
-
-/* =============================================
-   CUSTOM ANIMATIONS — softer for mymind feel
-   ============================================= */
-
-@keyframes float-slow {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes float-faster {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-14px);
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
+  /* === Selection === */
+  ::selection {
+    background: var(--hable-red);
+    color: #fff;
   }
 }
 
 /* Custom scrollbar — warm */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(36 40% 95%);
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(30 10% 12% / 0.12);
+  background: #E5E5E5;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(30 10% 12% / 0.25);
-}
-
-/* Selection color */
-::selection {
-  background: hsl(30 10% 12% / 0.1);
-  color: hsl(30 10% 12%);
-}
-
-/* Strikethrough style for manifesto */
-.manifesto-strike {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  text-decoration-color: hsl(30 10% 12% / 0.4);
-  opacity: 0.5;
+  background: var(--hable-red);
 }

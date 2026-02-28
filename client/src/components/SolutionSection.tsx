@@ -1,43 +1,89 @@
 import { motion } from "framer-motion";
-import { Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import heroDevice from "@/assets/hero-device.png";
 
 const SolutionSection = () => (
-  <section id="solution" className="relative overflow-hidden py-32 lg:py-48" style={{ background: "hsl(30, 10%, 12%)" }}>
-    <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8 text-center">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-10">
-          The future of tactile reading
-        </p>
-
-        <h2 className="text-5xl font-display text-white sm:text-6xl lg:text-8xl leading-[1.1] mb-12">
-          Screens are silent.
-          <br />
-          <span className="italic text-[hsl(18,76%,62%)]">Your mind is not.</span>
-        </h2>
-
-        <div className="relative mx-auto max-w-2xl mt-16 group">
-          <div className="absolute inset-0 bg-[hsl(18,76%,62%)]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          <div className="relative bg-white/5 border border-white/10 rounded-2xl py-8 px-10 flex flex-col items-center justify-center gap-6 shadow-2xl backdrop-blur-sm">
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5, 6].map(i => (
-                <div key={i} className="w-3 h-3 rounded-full bg-[hsl(18,76%,62%)] animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-              ))}
-            </div>
-            <span className="text-2xl font-display text-white/40 tracking-tight">Real-time Braille Stream...</span>
+  <section id="solution" className="section-gray relative overflow-hidden">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+        {/* Visual */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="bg-white rounded-[3rem] p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white overflow-hidden">
+            <img
+              src="/Screenshot 2025-01-06 at 4.12.00 AM copy.png"
+              alt="How to use TouchRead"
+              className="w-full h-full object-contain animate-float"
+            />
           </div>
-        </div>
 
-        <p className="mx-auto mt-16 max-w-2xl text-white/50 text-xl font-light leading-relaxed">
-          TouchRead bridges the gap between digital content and tactile sensation.
-          Universal access, private communication, and intelligent conversion —
-          all happening right at your fingertips.
-        </p>
-      </motion.div>
+
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+
+          <h2 className="text-4xl font-black text-black sm:text-5xl lg:text-6xl leading-[1.05]">
+            The world at your <br />
+            <span className="text-primary-foreground bg-primary px-3 inline-block transform -skew-x-3">fingertips.</span>
+          </h2>
+
+          <div className="mt-12 space-y-10">
+            {[
+              {
+                step: "01",
+                title: "Connect via Bluetooth",
+                desc: "Pair TouchRead with your iPhone or Android in seconds. No apps required, it just works."
+              },
+              {
+                step: "02",
+                title: "Navigate with Ease",
+                desc: "Use the physical 6-button Braille layout to move between apps, type messages, and control everything."
+              },
+              {
+                step: "03",
+                title: "Total Freedom",
+                desc: "Keep your phone in your pocket or bag. Navigate your world without anyone even noticing."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+                className="flex gap-8 group"
+              >
+                <div className="text-3xl font-black text-primary/30 group-hover:text-primary transition-colors duration-300">
+                  {item.step}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-black text-black mb-2">{item.title}</h3>
+                  <p className="text-lg text-gray-500 font-medium leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <a href="#cta" className="btn-hable-dark gap-3">
+              Start your journey <ArrowRight size={18} />
+            </a>
+          </div>
+        </motion.div>
+      </div>
     </div>
   </section>
 );

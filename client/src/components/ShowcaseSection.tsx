@@ -1,59 +1,65 @@
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
-const cards = [
-  { title: "Personal Notes", type: "note", color: "card-yellow", span: 22 },
-  { title: "Design Objects", type: "image", color: "card-green", span: 30 },
-  { title: "Digital Highlights", type: "quote", color: "card-pink", span: 18 },
-  { title: "Tactile Patterns", type: "concept", color: "card-blue", span: 26 },
-  { title: "Brain Maps", type: "image", color: "card-orange", span: 24 },
-  { title: "AI Transcripts", type: "text", color: "card-purple", span: 20 },
-  { title: "Voice Memos", type: "audio", color: "card-yellow", span: 28 },
-  { title: "Scientific Links", type: "link", color: "card-green", span: 16 },
-  { title: "Future Tech", type: "idea", color: "card-blue", span: 32 },
+const testimonials = [
+  { text: "The TouchRead 1 is an incredible little smart phone keyboard. It has made using my phone so much easier.", author: "Verified Customer", stars: 5 },
+  { text: "The TouchRead Easy makes it a lot easier to use my smartphone for daily tasks.", author: "Verified Customer", stars: 5 },
+  { text: "Super useful device for my independence. Highly recommend!", author: "Verified Customer", stars: 5 },
+  { text: "TouchRead has truly changed how I interact with technology.", author: "Verified Customer", stars: 5 },
+];
+
+const userPhotos = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80",
 ];
 
 const ShowcaseSection = () => (
-  <section id="showcase" className="section-padding relative overflow-hidden" style={{ background: "var(--section-bg-a)" }}>
-    <div className="section-divider absolute top-0 left-0 right-0" />
-
-    <div className="relative z-10 mx-auto max-w-7xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-24"
-      >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6">
-          The Mind Expansion
-        </p>
-        <h2 className="text-5xl font-display text-foreground sm:text-6xl leading-[1.1]">
-          One place for <span className="gradient-text italic">everything.</span>
+  <section className="bg-white py-24 border-t border-black/[0.04]">
+    <div className="mx-auto max-w-full px-6">
+      <div className="flex items-center gap-6 mb-12">
+        <h2 className="text-3xl font-bold text-black whitespace-nowrap">
+          Will be trusted by thousands worldwide every day
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-muted-foreground font-light text-lg">
-          No need to organize, label or even tag. Your mind magically organizes and visualizes everything for you.
-        </p>
-      </motion.div>
+        <div className="h-px bg-black/[0.1] w-full" />
+      </div>
 
-      <div className="mymind-grid">
-        {cards.map((card, i) => (
-          <motion.div
-            key={card.title + i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05, duration: 0.6, ease: "easeOut" }}
-            className={`mymind-card ${card.color} flex flex-col justify-end`}
-            style={{ "--span": card.span } as React.CSSProperties}
-          >
-            <div className="space-y-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
-                {card.type}
-              </span>
-              <h3 className="text-xl font-display leading-tight">{card.title}</h3>
-            </div>
-          </motion.div>
+      {/* Photo Grid */}
+      <div className="flex gap-1 overflow-hidden h-[300px] mb-20 lg:h-[400px]">
+        {userPhotos.map((photo, i) => (
+          <div key={i} className="flex-1 overflow-hidden transition-all duration-500 hover:flex-[1.5]">
+            <img src={photo} className="w-full h-full object-cover" alt="User" />
+          </div>
         ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        <h3 className="text-3xl font-bold text-center mb-16 underline decoration-1 underline-offset-8">Future customer reviews</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-8 border border-black/[0.04] rounded-xl shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(t.stars)].map((_, starIndex) => (
+                  <Star key={starIndex} size={16} fill="#fbbf24" color="#fbbf24" />
+                ))}
+              </div>
+              <p className="text-sm text-[#333] leading-relaxed mb-4 italic">"{t.text}"</p>
+              <p className="text-xs font-bold text-black uppercase tracking-wider">{t.author}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

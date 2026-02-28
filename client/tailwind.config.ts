@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Nunito"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"DM Serif Display"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Montserrat"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

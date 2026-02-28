@@ -1,39 +1,65 @@
-import { Heart } from "lucide-react";
-
-const links = [
-  { label: "About", href: "#" },
-  { label: "Technology", href: "#technical" },
-  { label: "Accessibility", href: "#impact" },
-  { label: "Contact", href: "mailto:hello@touchread.io" },
-];
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => (
-  <footer className="relative overflow-hidden border-t border-foreground/6" style={{ background: "var(--section-bg-a)" }}>
-    <div className="mx-auto max-w-6xl">
-      <div className="flex flex-col items-center gap-10 px-6 py-16 sm:flex-row sm:justify-between lg:px-8">
-        <span className="text-lg font-display text-foreground tracking-tight">
-          Touch<span className="gradient-text">Read</span>
-        </span>
+  <footer className="bg-black text-white pt-24 pb-12">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="grid gap-12 lg:grid-cols-4 mb-20">
+        {/* Brand */}
+        <div className="col-span-1 lg:col-span-1">
+          <a href="#" className="text-3xl font-black font-display tracking-tighter uppercase mb-8 block">
+            TouchRead<span className="text-black bg-primary px-1">.</span>
+          </a>
+          <p className="text-gray-400 font-medium leading-relaxed mb-8 max-w-xs">
+            Making the digital world accessible for everyone. High-quality assistive tech designed in India.
+          </p>
+          <div className="flex gap-4">
+            {[Instagram, Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+              <a key={i} href="#" className="text-white hover:text-primary transition-colors">
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
+        </div>
 
-        <nav className="flex flex-wrap items-center justify-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground transition-colors duration-300 hover:text-foreground"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
+        {/* Links */}
+        {[
+          {
+            title: "Products",
+            links: ["TouchRead", "TouchRead Easy", "Refurbished", "Accessories"]
+          },
+          {
+            title: "Support",
+            links: ["User Manuals", "Video Tutorials", "Contact Help", "FAQ"]
+          },
+          {
+            title: "Legal",
+            links: ["Privacy Policy", "Terms of Use", "Shipping Policy", "Refund Policy"]
+          }
+        ].map((group) => (
+          <div key={group.title}>
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-primary mb-8">{group.title}</h3>
+            <ul className="space-y-4">
+              {group.links.map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-gray-400 hover:text-white font-medium transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      <div className="border-t border-foreground/6 px-6 py-6 text-center">
-        <p className="text-xs text-muted-foreground/60 flex items-center justify-center gap-1">
-          &copy; {new Date().getFullYear()} TouchRead by PortableBraille. Made with{" "}
-          <Heart size={10} className="text-[hsl(18,76%,62%)] fill-[hsl(18,76%,62%)]" />{" "}
-          for accessibility.
+      <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-sm text-gray-500 font-medium">
+          © {new Date().getFullYear()} TouchRead. All rights reserved.
         </p>
+        <div className="flex gap-8 text-[11px] font-black uppercase tracking-widest text-gray-600">
+          <span>Designed in India</span>
+          <span className="text-primary">●</span>
+          <span>Made for everyone</span>
+        </div>
       </div>
     </div>
   </footer>
